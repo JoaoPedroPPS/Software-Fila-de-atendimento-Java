@@ -8,7 +8,7 @@ public class FormFila extends javax.swing.JFrame {
             new ArrayDeque<Pessoa>();
     Queue<Pessoa> filaPrioridade = 
             new ArrayDeque<Pessoa>();
-    int cAux = 5;
+    int cAux = 0;
 
     public FormFila() {
         initComponents();
