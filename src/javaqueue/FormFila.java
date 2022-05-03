@@ -213,6 +213,7 @@ public class FormFila extends javax.swing.JFrame {
                 addFila(p); // separar
             }// fim percurso no arquivo
             mostra();
+            mostraPreferencial();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -250,43 +251,38 @@ public class FormFila extends javax.swing.JFrame {
         System.out.println(filaNormal);// console
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
-         if(!filaPrioridade.isEmpty()){
-            if(cAux % 4 != 0){
-            if(!filaPrioridade.isEmpty()){
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {                                          
+         if(!filaPrioridade.isEmpty() && !filaNormal.isEmpty()){
+            if(cAux < 3){
                 Pessoa pRef = new Pessoa();
                 pRef = filaPrioridade.remove();// dequeue
                 lblProx.setText("Prox:"+pRef.getNome());
                 mostraPreferencial();
                 cAux++;
-            }// fim if
+            // fim if
         }
-        else if(cAux % 4 == 0){
-                 if(!filaNormal.isEmpty()){
+        else{
                 Pessoa p = new Pessoa();
                 p = filaNormal.remove();// dequeue
                 lblProx.setText("Prox:"+p.getNome());
                 mostra();
-                cAux++;
+                cAux = 0;
         }
-        }
-    }//GEN-LAST:event_btnAtenderActionPerformed
-         else{
+    }                                          
+    else{
              if(!filaNormal.isEmpty()){
                 Pessoa p = new Pessoa();
                 p = filaNormal.remove();// dequeue
                 lblProx.setText("Prox:"+p.getNome());
                 mostra();
-                cAux++;  
+                cAux = 0;
              }
-             else{
+             if (!filaPrioridade.isEmpty()){
                 Pessoa pRef = new Pessoa();
                 pRef = filaPrioridade.remove();// dequeue
                 lblProx.setText("Prox:"+pRef.getNome());
                 mostraPreferencial();
          }
-         
- 
     }
     }
         
